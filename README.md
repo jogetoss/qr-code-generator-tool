@@ -1,6 +1,6 @@
 # Description
 
-This repository is meant to serve as a general template for how to set up new repositories in the JogetOSS organization. 
+QR Code Generator Tool generates QR Code to be attached to email through process / post form processing.
 
 # Getting Help
 

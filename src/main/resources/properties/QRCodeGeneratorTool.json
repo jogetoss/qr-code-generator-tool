@@ -1,0 +1,43 @@
+[
+    {
+      "title":"@@org.joget.marketplace.qrcodegeneratortool.config@@",
+      "properties":[
+         {
+            "name":"formDefId",
+            "label":"@@org.joget.marketplace.qrcodegeneratortool.formDefId@@",
+            "type":"selectbox",
+            "required" : "True",
+            "options_ajax":"[CONTEXT_PATH]/web/json/console/app[APP_PATH]/forms/options"
+         },
+         {
+            "name":"uploadField",
+            "label":"@@org.joget.marketplace.qrcodegeneratortool.field@@",
+            "type":"selectbox",
+            "required" : "True",
+            "options_ajax_on_change":"formDefId",
+            "options_ajax":"[CONTEXT_PATH]/web/json/console/app[APP_PATH]/form/columns/options"
+         },
+         {
+            "name":"QRCodeProperties",
+            "label":"@@org.joget.marketplace.qrcodegeneratortool.QRCodeProperties@@",
+            "type":"header"
+         },
+         {
+            "name":"url",
+            "label":"@@org.joget.marketplace.qrcodegeneratortool.url@@",
+            "type":"textfield",
+            "required" : "True"
+         },
+         {
+            "name":"height",
+            "label":"@@org.joget.marketplace.qrcodegeneratortool.height@@",
+            "type":"textfield"
+         },
+         {
+            "name":"width",
+            "label":"@@org.joget.marketplace.qrcodegeneratortool.width@@",
+            "type":"textfield"
+         }
+       ]
+    }
+ ]
