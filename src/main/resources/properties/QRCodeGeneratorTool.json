@@ -23,10 +23,34 @@
             "type":"header"
          },
          {
+            "name" : "format",
+            "label" : "@@org.joget.marketplace.qrcodegeneratortool.format@@",
+            "type" : "selectbox",
+            "required" : "True",
+            "options" : [{
+                "value" : "url",
+                "label" : "@@org.joget.marketplace.qrcodegeneratortool.url@@"
+            },
+            {
+                "value" : "text",
+                "label" : "@@org.joget.marketplace.qrcodegeneratortool.text@@"
+            }]
+         },
+         {
             "name":"url",
             "label":"@@org.joget.marketplace.qrcodegeneratortool.url@@",
             "type":"textfield",
-            "required" : "True"
+            "required" : "True",
+            "control_field": "format",
+            "control_value": "url"
+         },
+         {
+            "name":"value",
+            "label":"@@org.joget.marketplace.qrcodegeneratortool.value@@",
+            "type":"textfield",
+            "required" : "True",
+            "control_field": "format",
+            "control_value": "text"
          },
          {
             "name":"height",

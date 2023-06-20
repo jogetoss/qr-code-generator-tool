@@ -71,15 +71,29 @@ public class QRCodeGeneratorTool extends DefaultApplicationPlugin{
         AppDefinition appDef = AppUtil.getCurrentAppDefinition();
         String formDefId = (String) map.get("formDefId");
         String uploadField = (String) map.get("uploadField");
+        String format = (String) map.get("format");
         String url = (String) map.get("url");
+        String value = (String) map.get("value");
         String height = (String) map.get("height");
         String width = (String) map.get("width");
+        String data = "";
 
         if (height.equals("")) {
             height = "200";
         }
         if (width.equals("")) {
             width = "200";
+        }
+
+        switch(format) {
+            case "url": 
+                data = url;
+                break;
+            case "text": 
+                data = value;
+                break;
+            default:
+                break;
         }
 
         String recordId;
@@ -95,7 +109,7 @@ public class QRCodeGeneratorTool extends DefaultApplicationPlugin{
             String filename = "qr-code.png";
             String tableName = appService.getFormTableName(appDef, formDefId);
             QRCodeWriter qrCodeWriter = new QRCodeWriter();
-            BitMatrix bitMatrix = qrCodeWriter.encode(new String(url.getBytes(charset), charset), QR_CODE, Integer.parseInt(width), Integer.parseInt(height));
+            BitMatrix bitMatrix = qrCodeWriter.encode(new String(data.getBytes(charset), charset), QR_CODE, Integer.parseInt(width), Integer.parseInt(height));
             BufferedImage bfi = MatrixToImageWriter.toBufferedImage(bitMatrix);
            
             String path = FileUtil.getUploadPath(tableName, recordId);
