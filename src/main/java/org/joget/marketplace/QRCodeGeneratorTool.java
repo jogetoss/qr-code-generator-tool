@@ -32,10 +32,12 @@ import org.springframework.context.ApplicationContext;
 public class QRCodeGeneratorTool extends DefaultApplicationPlugin{
     private final static String MESSAGE_PATH = "messages/QRCodeGeneratorTool";
 
+    @Override
     public String getName() {
         return AppPluginUtil.getMessage("processtool.qrcodegeneratortool.name", getClassName(), MESSAGE_PATH);
     }
 
+    @Override
     public String getVersion() {
         final Properties projectProp = new Properties();
         try {
@@ -46,20 +48,24 @@ public class QRCodeGeneratorTool extends DefaultApplicationPlugin{
         return projectProp.getProperty("version");
     }
     
+    @Override
     public String getClassName() {
         return getClass().getName();
     }
     
+    @Override
     public String getLabel() {
         //support i18n
         return AppPluginUtil.getMessage("processtool.qrcodegeneratortool.name", getClassName(), MESSAGE_PATH);
     }
     
+    @Override
     public String getDescription() {
         //support i18n
         return AppPluginUtil.getMessage("processtool.qrcodegeneratortool.desc", getClassName(), MESSAGE_PATH);
     }
  
+    @Override
     public String getPropertyOptions() {
         return AppUtil.readPluginResource(getClassName(), "/properties/QRCodeGeneratorTool.json", null, true, MESSAGE_PATH);
     }
