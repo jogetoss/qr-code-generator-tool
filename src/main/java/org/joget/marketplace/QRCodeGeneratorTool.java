@@ -11,8 +11,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Map;
 import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 
 import org.apache.commons.io.FileUtils;
@@ -132,7 +130,7 @@ public class QRCodeGeneratorTool extends DefaultApplicationPlugin{
             set.add(0, r1);
             appService.storeFormData(appDef.getAppId(), appDef.getVersion().toString(), formDefId, set, recordId);
         } catch(Exception ex){
-            Logger.getLogger(getClassName()).log(Level.SEVERE, null, ex);
+            LogUtil.error(getClassName(), ex, ex.getMessage());
         }
         return null;
     }
