@@ -22,6 +22,7 @@ import org.joget.apps.app.service.AppUtil;
 import org.joget.apps.form.model.FormRow;
 import org.joget.apps.form.model.FormRowSet;
 import org.joget.apps.form.service.FileUtil;
+import org.joget.commons.util.FileManager;
 import org.joget.commons.util.LogUtil;
 import org.joget.plugin.base.DefaultApplicationPlugin;
 import org.joget.workflow.model.WorkflowAssignment;
@@ -117,12 +118,10 @@ public class QRCodeGeneratorTool extends DefaultApplicationPlugin{
             BufferedImage bfi = MatrixToImageWriter.toBufferedImage(bitMatrix);
            
             String path = FileUtil.getUploadPath(tableName, recordId);
-            final File file = new File(path + filename);
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            ImageIO.write(bfi, "png", baos);
-            byte[] bytes = baos.toByteArray();
-            FileUtils.writeByteArrayToFile(file, bytes);
-       
+            File file = new File(path + filename);
+            file.mkdirs();
+            ImageIO.write(bfi, "png", file);
+     
             FormRowSet set = new FormRowSet();
             FormRow r1 = new FormRow();
             r1.put(uploadField, filename);
